@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "laravel-elixir": "^6.0.0-15"
+  },
+  "dependencies": {
+    "node-sass": "^4.5.3"
+  }
+}

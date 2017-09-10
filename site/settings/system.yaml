@@ -25,7 +25,7 @@ filesystems:
     root: site/themes
     url: /site/themes
 redactor:
-  - 
+  -
     name: Standard
     settings:
       buttons:
@@ -35,8 +35,9 @@ redactor:
         - link
         - unorderedlist
         - orderedlist
+        - blockquote
         - html
-  - 
+  -
     name: Basic
     settings:
       buttons:

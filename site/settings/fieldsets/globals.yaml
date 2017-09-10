@@ -1,0 +1,31 @@
+title: Globals
+hide: true
+fields:
+  site_name:
+    type: text
+    display: Site Name
+    instructions: The display name of the website
+    localizable: true
+    validate: required
+  about:
+    type: markdown
+    display: About
+    instructions: The content to appear in the 'about' dropdown
+    localizable: true
+    validate: required
+  meta_description:
+    type: text
+    display: Meta description
+    instructions: The default meta description for the site, limited to 160 characters
+    localizable: true
+    validate: required|Max:160
+  logo:
+    type: assets
+    container: main
+    folder: /img
+    max_files: 1
+    restrict: true
+    display: Site Logo
+    instructions: The logo for the site
+    localizable: false
+    validate: required

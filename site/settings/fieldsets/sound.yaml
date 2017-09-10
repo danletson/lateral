@@ -1,0 +1,81 @@
+title: Sound
+taxonomies:
+  tags: true
+create_title: Add a sound
+fields:
+  entry_number:
+    type: text
+    display: Entry Number
+    instructions: The "catalog number" of the piece
+    validate: required|Integer
+  artist:
+    type: text
+    display: Artist Name
+    instructions: The name of the artist
+    validate: required
+  meta_description:
+    type: text
+    display: Meta Description
+    instructions: The meta description for the piece, limited to 160 characters
+    localizable: true
+    validate: required|Max:160
+  companion_text:
+    type: redactor
+    settings: Standard
+    container: main
+    folder: /img
+    restrict_assets: true
+    display: Companion Text
+    instructions: The text to accompany the piece on Lateral Addition
+    localizable: true
+    validate: required
+  pub_date:
+    type: date
+    display: Publish Date
+    instructions: The offical publish date of the piece on Lateral Addition
+    validate: required
+  sound_url:
+    type: text
+    display: Sound URL
+    instructions: The SoundCloud-hosted .mp3 file for the web player
+    validate: required
+  copyright_info:
+    type: replicator
+    display: Copyright
+    instructions: The copyright info, if any, for the piece
+    sets:
+      copyright_default:
+        display: Copyright Info
+        fields:
+          holders_name:
+            type: text
+            display: "Copyright Holder's Name"
+            instructions: The name of the license holder
+            width: 33
+            validate: required
+          license_year:
+            type: text
+            display: Copyright Year
+            instructions: The year of the copyright
+            width: 33
+            validate: required|Integer|Min:1000
+          license_type:
+            type: select
+            display: License Type
+            instructions: The type of license
+            options:
+              CC0: "Public Domain"
+              BY: "Attribution Alone"
+              BY-SA: "Attribution + ShareAlike"
+              BY-NC: "Attribution + NonCommercial"
+              BY-ND: "Attribution + NoDerivatives"
+              BY-NC-SA: "Attribution + NonCommercial + ShareAlike"
+              BY-NC-ND: "Attribution + NonCommercial + NoDerivatives"
+              C: "All Rights Reserved"
+            width: 33
+            validate: required
+        instructions: The specifics of the copyright
+  text_author:
+    type: text
+    display: Text Author
+    instructions: The author of the companion text, if different from the artist of the piece

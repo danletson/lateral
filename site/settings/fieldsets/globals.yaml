@@ -1,16 +1,18 @@
 title: Globals
 hide: true
+taxonomies:
+  tags: true
 fields:
-  site_name:
+  site_title:
     type: text
-    display: Site Name
+    display: Site Title
     instructions: The display name of the website
     localizable: true
     validate: required
   about:
     type: markdown
     display: About
-    instructions: The content to appear in the 'about' dropdown
+    instructions: "The content to appear in the 'about' dropdown"
     localizable: true
     validate: required
   meta_description:
@@ -27,5 +29,4 @@ fields:
     restrict: true
     display: Site Logo
     instructions: The logo for the site
-    localizable: false
     validate: required

@@ -1,2 +1,24 @@
+@font-face {
+  font-family: 'Bebas';
+  src: url("./assets/bebas.woff") format("woff"), url("./assets/bebas.woff2") format("woff2");
+  /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  font-family: 'Lora',Georgia,Times,serif;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Lora',Georgia,Times,serif;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Lora',Georgia,Times,serif;
+  font-weight: 400;
+}
 
 /*# sourceMappingURL=lateral.css.map */

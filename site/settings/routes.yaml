@@ -1,0 +1,4 @@
+collections:
+  sounds: '/entry/{slug}'
+taxonomies: [ ]
+routes: [ ]

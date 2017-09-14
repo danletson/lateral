@@ -10,13 +10,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Another awesome Statamic site">
     <title>{{ title or site_title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ theme:css }}">
 </head>
 
 
 <body>
 
-    <div class="container">
+    <div class="grid-container">
+        <header class="site-header">
+          <a href="#"><img src="{{ logo }}" alt="Lateral Addition Logo"></a>
+          <div class="about">
+            {{ about }}
+          </div>
+        </header>
+        <nav>
+        </nav>
+        <div class="main">
+          {{ collection:sounds as="entry" }}
+            {{ entry }}
+            <div class="entry">
+              <script type="application/ld+json">
+              {
+                  "@context": "http://schema.org",
+                  "@type": "WebSite",
+                  "url": "{{ url }}",
+                  "name": "{{ title }}",
+                  "description": "{{ meta_description }}"
+              }
+
+              </script>
+              <header class="entry--header">
+                <span class="entry--number">{{ entry_number }}</span> <span class="entry--artist">{{ artist }}</span>
+                <a href="#"><h2 class="entry--title">{{ title }}</h2></a>
+
+              </header>
+              <div class="entry--content">
+
+              </div>
+
+            </div>
+            {{ /entry }}
+          {{ /collection:sounds }}
+        </div>
         {{ template_content }}
     </div>
 

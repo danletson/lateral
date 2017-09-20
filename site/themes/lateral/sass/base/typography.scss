@@ -35,3 +35,8 @@
 p{
   @include text--body;
 }
+
+a.cta{
+  @include text--condensed();
+  color: $blue;
+}

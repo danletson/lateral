@@ -1,0 +1,28 @@
+taxonomies:
+  tags: true
+title: Sound Collection
+hide: true
+fields:
+  title:
+    type: title
+    display: Title
+    localizable: true
+  type_of_collection:
+    type: radio
+    display: Type of Collection
+    instructions: >
+      The "type" of collection. Is this a standard twice-yearly collection of four sounds? Or is it a
+      "special" collection of sounds, not grouped by release date?
+    options:
+      date_collection: Twice-yearly
+      special_collection: Special
+  sounds:
+    type: collection
+    display: Sounds
+    instructions: The sounds to include in the collection, in ascending order.
+    collection:
+      - sounds
+    sort: entry_number:asc
+    label: '{{ entry_number }} {{ title }}'
+    mode: panes
+    validate: required

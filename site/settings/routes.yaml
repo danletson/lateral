@@ -1,4 +1,5 @@
 collections:
   sounds: '/entry/{slug}'
+  sound_collections: '/collection/{slug}'
 taxonomies: [ ]
 routes: [ ]

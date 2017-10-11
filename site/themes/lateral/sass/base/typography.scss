@@ -9,10 +9,10 @@
 
 @mixin text--condensed {
   font-family: 'Bebas',Helvetica,Arial,sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
   font-size: .76em;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 @mixin text--body {
@@ -34,9 +34,14 @@
 
 p{
   @include text--body;
+  line-height: 1.5;
 }
 
 a.cta{
   @include text--condensed();
   color: $blue;
+  font-size: 1.125rem;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  font-weight: normal;
 }

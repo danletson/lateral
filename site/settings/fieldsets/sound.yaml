@@ -64,14 +64,14 @@ fields:
             display: License Type
             instructions: The type of license
             options:
-              CC0: "Public Domain"
-              BY: "Attribution Alone"
-              BY-SA: "Attribution + ShareAlike"
-              BY-NC: "Attribution + NonCommercial"
-              BY-ND: "Attribution + NoDerivatives"
-              BY-NC-SA: "Attribution + NonCommercial + ShareAlike"
-              BY-NC-ND: "Attribution + NonCommercial + NoDerivatives"
-              C: "All Rights Reserved"
+              CC0: Public Domain
+              BY: Attribution Alone
+              BY-SA: Attribution + ShareAlike
+              BY-NC: Attribution + NonCommercial
+              BY-ND: Attribution + NoDerivatives
+              BY-NC-SA: Attribution + NonCommercial + ShareAlike
+              BY-NC-ND: Attribution + NonCommercial + NoDerivatives
+              C: All Rights Reserved
             width: 33
             validate: required
         instructions: The specifics of the copyright
@@ -79,3 +79,9 @@ fields:
     type: text
     display: Text Author
     instructions: The author of the companion text, if different from the artist of the piece
+  release_group:
+    type: tags
+    display: Release Group
+    instructions: >
+      The name of the release group, usually a season and year, for laying the sound out in the timeline
+      navigation

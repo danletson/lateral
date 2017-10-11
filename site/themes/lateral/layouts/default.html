@@ -17,55 +17,67 @@
 
 <body>
 
-    <div class="grid-container">
+    <div class="grid-container vue-container">
         <header class="site-header">
-          <a href="#"><img src="{{ logo }}" alt="Lateral Addition Logo"></a>
-          <div class="about">
+          <a href="#"><img src="{{ logo }}" alt="Lateral Addition Logo" class="logo"></a>
+          <div class="about-container">
             {{ about }}
+          </div>
+          <div class="about-toggle">
+            <a href="" class="cta">About</a>
           </div>
         </header>
         <nav>
+          <div class="timeline-container">
+            {{ collection:sound_collections as="group" }}
+              {{ group }}
+                <div data-group="{{ title }}"></div>
+              {{ /group }}
+            {{ /collection:sound_collections}}
+          </div>
         </nav>
-        <div class="main">
-          {{ collection:sounds as="entry" }}
-            {{ entry }}
-            <div class="entry entry--sound">
-              <script type="application/ld+json">
-              {
-                  "@context": "http://schema.org",
-                  "@type": "WebSite",
-                  "url": "{{ url }}",
-                  "name": "{{ title }}",
-                  "description": "{{ meta_description }}"
-              }
-
-              </script>
-              <header class="entry__header">
-                <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
-                <a href="#"><h2 class="entry__title">{{ title }}</h2></a>
-
-              </header>
-              <div class="entry__content">
-                <div class="entry__links">
-                  <a href="" class="cta">Listen</a><a href="{{ sound_url }}" download class="cta">Download</a><a href="" class="cta">Share</a>
-                  <audio controls="controls">
-                    Your browser does not support the <code>audio</code> element.
-                    <source src="{{ sound_url }}" type="audio/mp3">
-                  </audio>
-                </div>
-              </div>
-
-            </div>
-            {{ /entry }}
-          {{ /collection:sounds }}
+        <div class="player">
+          <player></player>
         </div>
-        {{ template_content }}
+        <entries>
+          <entry v-for="(sound, index) in sounds" v-bind="sound"></entry>
+        </entries>
+        <footer></footer>
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/vue">
+    {{ collection:sounds as="entry_data" }}
+      <script type="text/javascript">
+        var soundData = {
+          sounds:[
+          {{ entry_data }}
 
-    </script>
+            {{ if last }}
+              {
+                index: '{{ zero_index }}',
+                title: '{{ title }}',
+                soundURL: '{{ sound_url }}',
+                permalink: '{{ url }}',
+                artist: '{{ artist }}',
+                entryNumber: '{{ entry_number }}',
+                metaDescription: '{{ meta_description }}'
+              }
+            {{ else }}
+              {
+                index: '{{ zero_index }}',
+                title: '{{ title }}',
+                soundURL: '{{ sound_url }}',
+                permalink: '{{ url }}',
+                artist: '{{ artist }}',
+                entryNumber: '{{ entry_number }}',
+                metaDescription: '{{ meta_description }}'
+              },
+            {{ /if }}
+          {{ /entry_data }}
+          ]
+        }
+      </script>
+    {{ /collection:sounds }}
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
     <script src="{{ theme:js }}"></script>
 
 </body>

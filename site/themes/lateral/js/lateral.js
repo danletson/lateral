@@ -47,11 +47,12 @@ Vue.component('entry', {
     <div class="entry entry--sound collapsed" :selected="true" :playing="false">
       <header class="entry__header">
         <span class="entry__number">{{ entryNumber }}</span> <span class="entry__artist">{{ artist }}</span>
-        <a href="#"><h2 class="entry__title">{{ title }}</h2></a>
+        <h2 @click="expandEntry" class="entry__title">{{ title }}</h2>
+        <a href="#" @click="closeEntry">✕</a>
       </header>
       <div class="entry__content">
         <div class="entry__links">
-          <a href="" class="cta">Listen</a><a href="{{ soundURL }}" download class="cta">Download</a>
+          <a href="" class="cta" @click="playSound(soundURL)">Listen</a><a :href="soundURL" download class="cta">Download</a>
         </div>
         <div class="entry__text">
         </div>

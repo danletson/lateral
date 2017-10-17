@@ -40,7 +40,7 @@
           <player></player>
         </div>
         <entries>
-          <entry v-for="(sound, index) in sounds" v-bind="sound"></entry>
+          <entry v-for="(sound, index) in sounds" :key="sound.index" v-bind="sound"></entry>
         </entries>
         <footer></footer>
     </div>

@@ -434,7 +434,7 @@ template {
 
 @font-face {
   font-family: 'Bebas';
-  src: url("./assets/bebas.woff") format("woff"), url("./assets/bebas.woff2") format("woff2");
+  src: url("../assets/bebas.woff") format("woff"), url("../assets/bebas.woff2") format("woff2");
   /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
@@ -450,7 +450,7 @@ a.cta {
   font-family: 'Bebas',Helvetica,Arial,sans-serif;
   font-weight: normal;
   text-transform: uppercase;
-  font-size: .76em;
+  font-size: 0.76rem;
   letter-spacing: 0;
   color: #4A90E2;
   font-size: 1.125rem;
@@ -467,6 +467,58 @@ body {
 body {
   font-family: 'Lora',Georgia,Times,serif;
   font-weight: 400;
+}
+
+.entry__number {
+  font-family: 'Bebas',Helvetica,Arial,sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 22.8px;
+  letter-spacing: 0;
+}
+
+.entry__number:after {
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: black;
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  position: relative;
+  top: -.5rem;
+  left: .25rem;
+}
+
+.entry__artist {
+  font-family: 'Lora',Georgia,Times,serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+.entry__number, .entry__artist {
+  line-height: 2rem;
+  vertical-align: baseline;
+}
+
+.entry__title {
+  font-size: 2rem;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  -webkit-text-decoration-color: black;
+  text-decoration-color: black;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+}
+
+.entry__title:hover {
+  color: black;
+  -webkit-text-decoration-style: dotted;
+  text-decoration-style: dotted;
 }
 
 .grid-container {
@@ -527,7 +579,7 @@ div.main {
 }
 
 div.main .entry {
-  width: 20rem;
+  width: 30rem;
   margin-right: 2rem;
   -webkit-box-flex: 0;
   flex-grow: 0;

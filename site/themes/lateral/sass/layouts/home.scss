@@ -32,7 +32,7 @@ header.site-header{
   border-bottom: 1px solid black;
 }
 
-.player{
+.player-container{
   grid-area: player;
 }
 
@@ -40,7 +40,7 @@ nav{
   grid-area: nav;
 }
 
-div.main{
+div.entries-container{
   grid-area: main;
   width: auto;
   display: flex;

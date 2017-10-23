@@ -17,7 +17,7 @@
 
 <body>
 
-    <div class="grid-container vue-container">
+    <div class="grid-container">
         <header class="site-header">
           <a href="#"><img src="{{ logo }}" alt="Lateral Addition Logo" class="logo"></a>
           <div class="about-container">
@@ -36,48 +36,44 @@
             {{ /collection:sound_collections}}
           </div>
         </nav>
-        <div class="player">
-          <player></player>
+        <div class="player-container">
+          <div class="player">
+            <div class="track-title">
+              <span>Sarah Hennies - Falsetto</span>
+            </div>
+            <audio><source src="" type="audio/mp3"></audio>
+            <div class="download-link">
+              <a href="" download class="cta">Download</a>
+            </div>
+          </div>
         </div>
-        <entries>
-          <entry v-for="(sound, index) in sounds" :key="sound.index" v-bind="sound"></entry>
-        </entries>
+        <div class="entries-container">
+          {{ collection:sounds as="entry" }}
+            {{ entry }}
+              <div class="entry entry--sound collapsed">
+                <header class="entry__header">
+                  <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
+                  <h2 class="entry__title">{{ title }}</h2>
+                  <a href="#" class="close">✕</a>
+                </header>
+                <div class="entry__content">
+                  <div class="entry__links">
+                    <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} - {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
+                  </div>
+                  <div class="entry__text">
+                    {{ companion_text }}
+                  </div>
+                </div>
+              </div>
+            {{ /entry }}
+          {{ /collection:sounds }}
+        </div>
         <footer></footer>
     </div>
-
-    {{ collection:sounds as="entry_data" }}
-      <script type="text/javascript">
-        var soundData = {
-          sounds:[
-          {{ entry_data }}
-
-            {{ if last }}
-              {
-                index: '{{ zero_index }}',
-                title: '{{ title }}',
-                soundURL: '{{ sound_url }}',
-                permalink: '{{ url }}',
-                artist: '{{ artist }}',
-                entryNumber: '{{ entry_number }}',
-                metaDescription: '{{ meta_description }}'
-              }
-            {{ else }}
-              {
-                index: '{{ zero_index }}',
-                title: '{{ title }}',
-                soundURL: '{{ sound_url }}',
-                permalink: '{{ url }}',
-                artist: '{{ artist }}',
-                entryNumber: '{{ entry_number }}',
-                metaDescription: '{{ meta_description }}'
-              },
-            {{ /if }}
-          {{ /entry_data }}
-          ]
-        }
-      </script>
-    {{ /collection:sounds }}
-    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
     <script src="{{ theme:js }}"></script>
 
 </body>

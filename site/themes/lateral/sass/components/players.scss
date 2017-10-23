@@ -1,0 +1,16 @@
+.player{
+  time{
+    @include text--condensed(21px);
+    &.elapsed:after{
+      content: "";
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: black;
+      transform: rotate(120deg);
+      transform-origin: 50% 50%;
+      position:relative;
+      top: -.5rem;
+    }
+  }
+}

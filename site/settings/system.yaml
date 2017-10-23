@@ -4,7 +4,7 @@ locales:
     full: en_US
     name: English
     url: /
-license_key: ""
+license_key: 96d00e04-cf35-48be-9a33-8d586a9cd454
 timezone: UTC
 date_format: F jS, Y
 default_extension: md
@@ -25,7 +25,7 @@ filesystems:
     root: site/themes
     url: /site/themes
 redactor:
-  -
+  - 
     name: Standard
     settings:
       buttons:
@@ -37,7 +37,7 @@ redactor:
         - orderedlist
         - blockquote
         - html
-  -
+  - 
     name: Basic
     settings:
       buttons:

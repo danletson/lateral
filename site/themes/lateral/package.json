@@ -6,8 +6,6 @@
   },
   "dependencies": {
     "node-sass": "^4.5.3",
-    "vue": "^2.4.4",
-    "vue-audio": "0.0.7",
-    "vue-content-scroll-progress": "0.0.3"
+    "plyr": "^2.0.16"
   }
 }

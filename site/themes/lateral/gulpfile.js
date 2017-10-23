@@ -16,7 +16,8 @@ elixir.config.publicPath = './';
  */
 
 elixir(function(mix) {
-    mix.sass(theme + '.scss', 'css/' + theme + '.css');
-
+    mix.sass(theme + '.scss');
+    mix.styles([ 'css/all.css', 'css/plyr.css'], 'css/' + theme + '.css');
+    mix.scripts(['plyr.js', 'main.js'], 'js/' + theme + '.js');
     // mix.version('css/' + theme + '.css');
 });

@@ -36,11 +36,10 @@ p{
   line-height: 1.5;
 }
 
-a.cta{
-  @include text--condensed(1rem);
+a.cta, button.cta{
+  @include text--condensed(21px);
   color: $blue;
-  font-size: 1.125rem;
   text-decoration: none;
-  margin-right: 1.5rem;
   font-weight: normal;
+  vertical-align: baseline;
 }

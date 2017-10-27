@@ -1,6 +1,38 @@
 .entry{
   position:relative;
-  padding: 1.5rem;
+  padding: 0 3rem 0 1.5rem;
+  transition: all 0.4s ease;
+  width: 30rem;
+  margin-right: 2rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  &.collapsed{
+    border-left: 1px solid black;
+    height: auto;
+    .entry__title{
+      margin-bottom: 0;
+    }
+    .close{
+      opacity: 0;
+    }
+    .entry__content{
+      display: none;
+    }
+  }
+  &.featured{
+    width: 100%;
+    max-width: 50rem;
+    align-self: stretch;
+    width: 90vw;
+    max-width: 60rem;
+    overflow: scroll;
+    .close{
+      opacity: 1;
+    }
+    .entry__content{
+      display: block;
+    }
+  }
   .entry__number{
     @include text--condensed(30px);
     &:after{
@@ -24,10 +56,14 @@
     line-height: 2rem;
     vertical-align: baseline;
   }
+  .entry__content{
+    display: block;
+  }
   .entry__title{
     font-size: 2rem;
     color: black;
     text-decoration: underline;
+    text-decoration-skip: ink;
     cursor: pointer;
     text-decoration-color: black;
     text-decoration-style: solid;

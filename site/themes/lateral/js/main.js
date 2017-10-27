@@ -2,12 +2,12 @@ $(document).ready(function(){
   // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
   // e.g. just plyr.setup(); and leave it at that if you have no need for events
   var controls = ["<div class='plyr__controls'>",
-      "<button type='button' data-plyr='play'>",
-          "<svg><use xlink:href='#plyr-play'></use></svg>",
+      "<button type='button' data-plyr='play' class='cta'>",
+          "Play",
           "<span class='plyr__sr-only'>Play</span>",
       "</button>",
-      "<button type='button' data-plyr='pause'>",
-          "<svg><use xlink:href='#plyr-pause'></use></svg>",
+      "<button type='button' data-plyr='pause' class='cta'>",
+          "Pause",
           "<span class='plyr__sr-only'>Pause</span>",
       "</button>",
       "<span class='plyr__progress'>",
@@ -41,7 +41,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var soundURL = $(this).attr('data-sound');
-        $('.player .track-title').html($(this).attr('data-title'));
+        $('.player .track-title span').html($(this).attr('data-title'));
         $('.player .download-link a').attr('href', soundURL);
 
         player[0].source({
@@ -58,4 +58,22 @@ $(document).ready(function(){
         });
       });
     });
+
+    $('.entry--sound .entry__title').each(function(){
+      $(this).click(function(e){
+
+        var entry = $(this).parent().parent();
+
+        var headerHeight = entry.find('.entry__header').height();
+        var contentHeight = entry.find('.entry__content').height();
+        var entriesAreaHeight = $('.entries-container').height();
+
+        //$('.entries-container, .entries-wrap').height(headerHeight + contentHeight);
+        entry.height(entriesAreaHeight);
+
+        entry.removeClass('collapsed');
+        entry.addClass('featured');
+
+      })
+    })
 });

@@ -10,7 +10,7 @@
     "nav nav nav"
     ". player ."
     "main main main"
-    ". footer .";
+    // ". footer .";
 }
 
 // @media(min-width: 960px){
@@ -34,6 +34,11 @@ header.site-header{
 
 .player-container{
   grid-area: player;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // align-items: left;
+  // justify-content: flex-start;
 }
 
 nav{
@@ -42,30 +47,26 @@ nav{
 
 div.entries-container{
   grid-area: main;
+  align-self: center;
   width: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  padding: 3rem;
-  .entry{
-    width: 30rem;
-    margin-right: 2rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    &.selected{
-      align-self: stretch;
-      width: 90vw;
-      max-width: 60rem;
-    }
+  height: 100%;
+  overflow: scroll;
+  .entries-wrap{
+    height: auto;
+    position:relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
 
-footer{
-  grid-area: footer;
-}
+// footer{
+//   grid-area: footer;
+// }
 
 .logo{
   max-width: 8rem;

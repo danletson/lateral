@@ -1,3 +1,7 @@
 body{
   @include text--body;
 }
+
+*{
+  box-sizing: border-box;
+}

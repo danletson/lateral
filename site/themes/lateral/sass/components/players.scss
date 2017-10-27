@@ -1,4 +1,56 @@
 .player{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  .track-title{
+    flex-basis: 40%;
+    span{
+      @include text--italic;
+      font-size: 1.25rem;
+    }
+  }
+  .plyr{
+    flex-basis: 50%;
+    .plyr__controls{
+      border: none;
+      button.tab-focus:focus, button:hover{
+        background: white;
+        color: $blue;
+        text-decoration: underline;
+      }
+      .plyr__progress{
+        margin-right: 1.5rem;
+      }
+      .plyr__progress--played, .plyr__progress--buffer{
+        height: 3px;
+        margin-top: -2px;
+      }
+      .plyr__time{
+        @include text--condensed(21px);
+        vertical-align: baseline;
+        color: black;
+      }
+      .plyr__time+.plyr__time:before{
+          content: "";
+          display: inline-block;
+          width: 2rem;
+          height: 1px;
+          background: black;
+          transform: rotate(120deg);
+          transform-origin: 50% 50%;
+          position:relative;
+          top: -.5rem;
+      }
+    }
+  }
+  .download-link{
+    flex-basis: 10%;
+    text-align:right;
+  }
   time{
     @include text--condensed(21px);
     &.elapsed:after{

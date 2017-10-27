@@ -39,7 +39,7 @@
         <div class="player-container">
           <div class="player">
             <div class="track-title">
-              <span>Sarah Hennies - Falsetto</span>
+              <span>Sarah Hennies &mdash; Falsetto</span>
             </div>
             <audio><source src="" type="audio/mp3"></audio>
             <div class="download-link">
@@ -48,25 +48,27 @@
           </div>
         </div>
         <div class="entries-container">
-          {{ collection:sounds as="entry" }}
-            {{ entry }}
-              <div class="entry entry--sound collapsed">
-                <header class="entry__header">
-                  <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
-                  <h2 class="entry__title">{{ title }}</h2>
-                  <a href="#" class="close">✕</a>
-                </header>
-                <div class="entry__content">
-                  <div class="entry__links">
-                    <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} - {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
-                  </div>
-                  <div class="entry__text">
-                    {{ companion_text }}
+          <div class="entries-wrap">
+            {{ collection:sounds as="entry" }}
+              {{ entry }}
+                <div class="entry entry--sound collapsed">
+                  <header class="entry__header">
+                    <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
+                    <h2 class="entry__title">{{ title }}</h2>
+                    <a href="#" class="close cta">Close</a>
+                  </header>
+                  <div class="entry__content">
+                    <div class="entry__links">
+                      <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
+                    </div>
+                    <div class="entry__text">
+                      {{ companion_text }}
+                    </div>
                   </div>
                 </div>
-              </div>
-            {{ /entry }}
-          {{ /collection:sounds }}
+              {{ /entry }}
+            {{ /collection:sounds }}
+          </div>
         </div>
         <footer></footer>
     </div>

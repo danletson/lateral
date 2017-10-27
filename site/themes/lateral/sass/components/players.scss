@@ -33,6 +33,10 @@
         @include text--condensed(21px);
         vertical-align: baseline;
         color: black;
+        .plyr__time--current{
+          width: 3rem;
+          display: inline-block;
+        }
       }
       .plyr__time+.plyr__time:before{
           content: "";

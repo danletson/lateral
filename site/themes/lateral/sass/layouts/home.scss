@@ -3,7 +3,7 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 50fr 100vw 50fr;
-  grid-template-rows: 10rem 5rem auto 100fr 2rem;
+  grid-template-rows: auto auto auto 100fr;
   overflow: hidden;
   grid-template-areas:
     ". header ."

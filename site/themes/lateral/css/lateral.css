@@ -482,6 +482,7 @@ body {
   -webkit-box-flex: 0;
   flex-grow: 0;
   flex-shrink: 0;
+  margin: 1.5rem auto;
 }
 
 .entry.collapsed {
@@ -642,6 +643,11 @@ body {
   color: black;
 }
 
+.player .plyr .plyr__controls .plyr__time .plyr__time--current {
+  width: 3rem;
+  display: inline-block;
+}
+
 .player .plyr .plyr__controls .plyr__time + .plyr__time:before {
   content: "";
   display: inline-block;
@@ -690,8 +696,8 @@ body {
   display: grid;
   -ms-grid-columns: 50fr 100vw 50fr;
   grid-template-columns: 50fr 100vw 50fr;
-  -ms-grid-rows: 10rem 5rem auto 100fr 2rem;
-  grid-template-rows: 10rem 5rem auto 100fr 2rem;
+  -ms-grid-rows: auto auto auto 100fr;
+  grid-template-rows: auto auto auto 100fr;
   overflow: hidden;
   grid-template-areas: ". header ." "nav nav nav" ". player ." "main main main";
 }

@@ -1,8 +1,10 @@
 ---
-roles: [ ]
+roles:
+  - 63b6f68c-f42d-46fb-922e-6e663f763a6d
 email: eric.laska@gmail.com
 first_name: Eric
 last_name: Laska
 id: a37764d0-e8bd-43ac-ac5d-7949f39bee37
+password_hash: $2y$10$f4yHamQGNGI.y7YK6EgHlO4IfnLogd10K6QGbfK9OjnMQGvSAutUK
 ---
 Founder and curator of Lateral Addition

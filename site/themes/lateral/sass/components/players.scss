@@ -1,3 +1,6 @@
+.collapsed .player{
+  display: none;
+}
 .player{
   display: flex;
   flex-direction: row;
@@ -6,6 +9,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid black;
+  width: 100vw;
   .track-title{
     flex-basis: 40%;
     span{

@@ -16,23 +16,25 @@
 
 
 <body>
-
+    <header class="site-header collapsed">
+      <a href="#"><img src="{{ theme:asset src='img/la-logo-small.png'}}" alt="Lateral Addition Logo" class="logo"></a>
+      <div class="about-container">
+        {{ about }}
+      </div>
+    </header>
     <div class="grid-container">
-        <header class="site-header">
-          <a href="#"><img src="{{ logo }}" alt="Lateral Addition Logo" class="logo"></a>
-          <div class="about-container">
-            {{ about }}
-          </div>
-          <div class="about-toggle">
-            <a href="" class="cta">About</a>
-          </div>
-        </header>
         <nav>
           <div class="timeline-container">
-            {{ collection:sound_collections as="group" }}
-              {{ group }}
-                <div data-group="{{ title }}"></div>
-              {{ /group }}
+            {{ collection:sound_collections scope="group" sort="date:desc" limit="6"}}
+                {{ if type_of_collection == "date_collection"}}
+                  {{ relate:sounds sort="entry_number:desc"}}
+                    {{ if last }}
+                      <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark" data-title="{{ group:title }}"></div></a>
+                    {{ else }}
+                      <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark"></div></a>
+                    {{ /if }}
+                  {{ /relate:sounds }}
+                {{ /if }}
             {{ /collection:sound_collections}}
           </div>
         </nav>
@@ -49,25 +51,29 @@
         </div>
         <div class="entries-container">
           <div class="entries-wrap">
-            {{ collection:sounds as="entry" }}
-              {{ entry }}
-                <div class="entry entry--sound collapsed">
-                  <header class="entry__header">
-                    <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
-                    <h2 class="entry__title">{{ title }}</h2>
-                    <a href="#" class="close cta">Close</a>
-                  </header>
-                  <div class="entry__content">
-                    <div class="entry__links">
-                      <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
+            {{ collection:sound_collections scope="group" sort="date:desc" limit="6"}}
+              {{ if type_of_collection == "date_collection"}}
+                {{ relate:sounds as="entry" sort="entry_number:desc"}}
+                  {{ entry }}
+                    <div class="entry entry--sound collapsed" data-entry-number="{{ entry_number }}">
+                      <header class="entry__header">
+                        <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
+                        <h2 class="entry__title">{{ title }}</h2>
+                        <a href="#" class="close cta">Close</a>
+                      </header>
+                      <div class="entry__content">
+                        <div class="entry__links">
+                          <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
+                        </div>
+                        <div class="entry__text">
+                          {{ companion_text }}
+                        </div>
+                      </div>
                     </div>
-                    <div class="entry__text">
-                      {{ companion_text }}
-                    </div>
-                  </div>
-                </div>
-              {{ /entry }}
-            {{ /collection:sounds }}
+                  {{ /entry }}
+                {{ /relate:sounds }}
+              {{ /if }}
+            {{ /collection:sound_collections }}
           </div>
         </div>
         <footer></footer>

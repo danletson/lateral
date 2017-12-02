@@ -1,5 +1,6 @@
 body{
   @include text--body;
+  overflow: hidden;
 }
 
 *{

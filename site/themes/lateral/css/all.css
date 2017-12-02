@@ -461,6 +461,7 @@ a.cta, button.cta {
 body {
   font-family: 'Lora',Georgia,Times,serif;
   font-weight: 400;
+  overflow: hidden;
 }
 
 * {
@@ -583,6 +584,89 @@ body {
   right: 1.5rem;
 }
 
+header.site-header {
+  text-align: center;
+  padding: .5rem 1rem;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+
+header.site-header .logo {
+  height: 100%;
+}
+
+header.site-header.collapsed {
+  height: 3rem;
+}
+
+header.site-header.open {
+  height: 100vh;
+}
+
+header.site-header .about-container {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5rem;
+}
+
+.timeline-container {
+  width: 100vw;
+  height: 4rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+
+.timeline-container a[data-entry-target] {
+  border-left-color: black;
+  color: black;
+}
+
+.timeline-container a[data-entry-target]:hover {
+  border-left-color: #4A90E2;
+  color: #4A90E2;
+}
+
+.timeline-container .timeline-mark {
+  position: relative;
+  width: .5rem;
+  height: 1rem;
+  display: block;
+  background: none;
+  border-left: 1px solid;
+  border-left-color: black;
+  transition: all .2s ease;
+}
+
+.timeline-container .timeline-mark[data-title] {
+  color: #4A90E2;
+  border-left: 2px solid;
+  border-left-color: black;
+  height: 2.5rem;
+}
+
+.timeline-container .timeline-mark:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: .25rem;
+  font-size: .75rem;
+}
+
+.timeline-container .timeline-mark:hover {
+  border-left-color: #4A90E2;
+}
+
+.collapsed .player {
+  display: none;
+}
+
 .player {
   display: -webkit-box;
   display: flex;
@@ -596,6 +680,7 @@ body {
   -webkit-box-pack: justify;
   justify-content: space-between;
   border-bottom: 1px solid black;
+  width: 100vw;
 }
 
 .player .track-title {
@@ -689,39 +774,27 @@ body {
 }
 
 .grid-container {
-  height: 100vh;
+  height: calc(100vh - 3rem);
   width: 100vw;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 50fr 100vw 50fr;
-  grid-template-columns: 50fr 100vw 50fr;
-  -ms-grid-rows: auto auto auto 100fr;
-  grid-template-rows: auto auto auto 100fr;
-  overflow: hidden;
-  grid-template-areas: ". header ." "nav nav nav" ". player ." "main main main";
-}
-
-header.site-header {
-  grid-area: header;
   display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  justify-content: flex-start;
-  border-bottom: 1px solid black;
-}
-
-header.site-header .about-container {
-  padding: 1.5rem;
+  overflow: hidden;
 }
 
 .player-container {
-  grid-area: player;
+  width: 100vw;
+}
+
+.player-container.collapsed {
+  height: 0;
+}
+
+.player-container.open {
+  height: 5rem;
 }
 
 nav {
@@ -729,15 +802,15 @@ nav {
 }
 
 div.entries-container {
-  grid-area: main;
+  width: 100vw;
   -ms-grid-row-align: center;
   align-self: center;
-  width: auto;
   height: 100%;
   overflow: scroll;
 }
 
 div.entries-container .entries-wrap {
+  overflow: scroll;
   height: auto;
   position: relative;
   top: 50%;
@@ -746,17 +819,13 @@ div.entries-container .entries-wrap {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  flex-direction: row;
+  -webkit-box-direction: reverse;
+  flex-direction: row-reverse;
   flex-wrap: nowrap;
   -webkit-box-align: start;
   align-items: flex-start;
   -webkit-box-pack: start;
   justify-content: flex-start;
-}
-
-.logo {
-  max-width: 8rem;
 }
 
 /*# sourceMappingURL=all.css.map */

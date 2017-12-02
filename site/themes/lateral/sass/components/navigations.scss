@@ -1,0 +1,44 @@
+.timeline-container{
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+  a[data-entry-target]{
+    border-left-color: black;
+    color: black;
+    &:hover{
+      border-left-color: $blue;
+      color: $blue;
+    }
+  }
+
+  .timeline-mark{
+    position: relative;
+    width: .5rem;
+    height: 1rem;
+    display: block;
+    background: none;
+    border-left: 1px solid;
+    border-left-color: black;
+    transition: all .2s ease;
+    &[data-title]{
+      color: $blue;
+      border-left: 2px solid;
+      border-left-color: black;
+      height: 2.5rem;
+    }
+    &:after{
+      content: attr(data-title);
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: .25rem;
+      font-size: .75rem;
+    }
+    &:hover{
+      border-left-color: $blue;
+    }
+  }
+}

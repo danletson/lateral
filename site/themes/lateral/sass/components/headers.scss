@@ -1,0 +1,21 @@
+header.site-header{
+  text-align: center;
+  padding: .5rem 1rem;
+  .logo{
+    height: 100%;
+  }
+  &.collapsed{
+    height: 3rem;
+  }
+  &.open{
+    height: 100vh;
+  }
+  overflow: hidden;
+  .about-container{
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5rem;
+  }
+  border-bottom: 1px solid black;
+}

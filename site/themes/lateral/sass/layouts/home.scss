@@ -1,44 +1,20 @@
 .grid-container{
-  height: 100vh;
+  height: calc(100vh - 3rem);
   width: 100vw;
-  display: grid;
-  grid-template-columns: 50fr 100vw 50fr;
-  grid-template-rows: auto auto auto 100fr;
-  overflow: hidden;
-  grid-template-areas:
-    ". header ."
-    "nav nav nav"
-    ". player ."
-    "main main main"
-    // ". footer .";
-}
-
-// @media(min-width: 960px){
-//   .grid-container{
-//     grid-template-columns: 50fr 960px 50fr;
-//   }
-// }
-
-header.site-header{
-  grid-area: header;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
-  justify-content: flex-start;
-  .about-container{
-    padding: 1.5rem;
-  }
-  border-bottom: 1px solid black;
+  overflow: hidden;
 }
 
 .player-container{
-  grid-area: player;
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // align-items: left;
-  // justify-content: flex-start;
+  &.collapsed{
+    height: 0;
+  }
+  &.open{
+    height: 5rem;
+  }
+  width: 100vw;
 }
 
 nav{
@@ -46,28 +22,20 @@ nav{
 }
 
 div.entries-container{
-  grid-area: main;
+  width: 100vw;
   align-self: center;
-  width: auto;
   height: 100%;
   overflow: scroll;
   .entries-wrap{
+    overflow: scroll;
     height: auto;
     position:relative;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: flex-start;
   }
-}
-
-// footer{
-//   grid-area: footer;
-// }
-
-.logo{
-  max-width: 8rem;
 }

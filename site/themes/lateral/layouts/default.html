@@ -16,8 +16,13 @@
 
 
 <body>
-    <header class="site-header collapsed">
-      <a href="#"><img src="{{ theme:asset src='img/la-logo-small.png'}}" alt="Lateral Addition Logo" class="logo"></a>
+    <header class="site-header">
+      <a href="#">
+        <div class="logo-container">
+          <div style="background-image:url({{ theme:asset src='img/la-logo-small.png'}});" class="logo--collapsed"></div>
+          <div style="background-image:url({{ theme:asset src='img/la-logo-expanded.png'}});"  class="logo--open"></div>
+        </div>
+      </a>
       <div class="about-container">
         {{ about }}
       </div>
@@ -25,6 +30,10 @@
     <div class="grid-container">
         <nav>
           <div class="timeline-container">
+            <div class="timeline-position-container">
+              <div class="timeline-position-indicator">
+              </div>
+            </div>
             {{ collection:sound_collections scope="group" sort="date:desc" limit="6"}}
                 {{ if type_of_collection == "date_collection"}}
                   {{ relate:sounds sort="entry_number:desc"}}

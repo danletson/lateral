@@ -1,10 +1,30 @@
+nav{
+  position: relative;
+}
+
 .timeline-container{
+  padding: 0 1.5rem;
   width: 100vw;
-  height: 4rem;
+  height: 3rem;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 1px solid black;
+
+  .timeline-position-container{
+    position:absolute;
+    height: 100%;
+    left: 1.5rem;
+    right: 2rem;
+  }
+  .timeline-position-indicator{
+    position: absolute;
+    width: .125rem;
+    background: black;
+    height: 100%;
+    left: 100%;
+  }
+
   a[data-entry-target]{
     border-left-color: black;
     color: black;
@@ -17,28 +37,40 @@
   .timeline-mark{
     position: relative;
     width: .5rem;
-    height: 1rem;
-    display: block;
+    height: .5rem;
+    display: none;
     background: none;
     border-left: 1px solid;
-    border-left-color: black;
+    border-left-color: $blue;
     transition: all .2s ease;
     &[data-title]{
+      display: block;
       color: $blue;
-      border-left: 2px solid;
-      border-left-color: black;
-      height: 2.5rem;
+      border-left: 1px solid;
+      border-left-color: $blue;
+      height: 2rem;
     }
     &:after{
       content: attr(data-title);
       display: block;
       position: absolute;
-      bottom: 0;
+      bottom: -0.125rem;
       left: .25rem;
       font-size: .75rem;
     }
     &:hover{
       border-left-color: $blue;
+    }
+  }
+}
+
+
+
+@media(min-width: 680px){
+  .timeline-container .timeline-mark{
+    display: block;
+    &[data-title]{
+      border-left: 2px solid $blue;
     }
   }
 }

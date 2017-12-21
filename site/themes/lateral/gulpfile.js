@@ -18,6 +18,6 @@ elixir.config.publicPath = './';
 elixir(function(mix) {
     mix.sass(theme + '.scss', 'css/all.css');
     mix.styles([ 'css/plyr.css','css/all.css'], 'css/' + theme + '.css');
-    mix.scripts(['plyr.js', 'main.js'], 'js/' + theme + '.js');
+    mix.scripts(['plyr.js', 'jquery.scrollTo.min.js', 'main.js'], 'js/' + theme + '.js');
     // mix.version('css/' + theme + '.css');
 });

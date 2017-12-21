@@ -8,6 +8,7 @@
 }
 
 .player-container{
+  transition: height .3s linear;
   &.collapsed{
     height: 0;
   }

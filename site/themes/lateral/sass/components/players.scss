@@ -1,5 +1,9 @@
 .collapsed .player{
-  display: none;
+  opacity: 0;
+}
+
+.open .player{
+  opacity: 1;
 }
 .player{
   display: flex;
@@ -10,7 +14,7 @@
   justify-content: space-between;
   border-bottom: 1px solid black;
   width: 100vw;
-  &.co
+  transition: opacity .3s linear;
   .track-title{
     flex-basis: 100%;
     span{
@@ -90,8 +94,10 @@
     }
     .plyr{
       flex-basis: 50%;
-      .plyr__time{
-        display: block;
+      .plyr__controls{
+        .plyr__time{
+          display: block;
+        }
       }
     }
     .download-link{

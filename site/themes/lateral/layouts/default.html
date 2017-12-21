@@ -13,8 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ theme:css }}">
 </head>
-
-
 <body>
     <header class="site-header">
       <a href="#">
@@ -47,7 +45,7 @@
             {{ /collection:sound_collections}}
           </div>
         </nav>
-        <div class="player-container">
+        <div class="player-container collapsed">
           <div class="player">
             <div class="track-title">
               <span>Sarah Hennies &mdash; Falsetto</span>
@@ -65,17 +63,19 @@
                 {{ relate:sounds as="entry" sort="entry_number:desc"}}
                   {{ entry }}
                     <div class="entry entry--sound collapsed" data-entry-number="{{ entry_number }}">
-                      <header class="entry__header">
-                        <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
-                        <h2 class="entry__title">{{ title }}</h2>
-                        <a href="#" class="close cta">Close</a>
-                      </header>
-                      <div class="entry__content">
-                        <div class="entry__links">
-                          <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
-                        </div>
-                        <div class="entry__text">
-                          {{ companion_text }}
+                      <div class="entry__wrapper">
+                        <header class="entry__header">
+                          <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
+                          <h2 class="entry__title">{{ title }}</h2>
+                          <a href="#" class="close cta">Close</a>
+                        </header>
+                        <div class="entry__content">
+                          <div class="entry__links">
+                            <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
+                          </div>
+                          <div class="entry__text">
+                            {{ companion_text }}
+                          </div>
                         </div>
                       </div>
                     </div>

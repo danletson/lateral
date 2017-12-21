@@ -1,3 +1,17 @@
+(function($) {
+    $.fn.clickToggle = function(func1, func2) {
+        var funcs = [func1, func2];
+        this.data('toggleclicked', 0);
+        this.click(function() {
+            var data = $(this).data();
+            var tc = data.toggleclicked;
+            $.proxy(funcs[tc], this)();
+            data.toggleclicked = (tc + 1) % 2;
+        });
+        return this;
+    };
+}(jQuery));
+
 $(document).ready(function(){
   // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
   // e.g. just plyr.setup(); and leave it at that if you have no need for events
@@ -40,6 +54,9 @@ $(document).ready(function(){
       $(this).click(function(e){
         e.preventDefault();
 
+        $('.player-container').removeClass('collapsed');
+        $('.player-container').addClass('open');
+
         var soundURL = $(this).attr('data-sound');
         $('.player .track-title span').html($(this).attr('data-title'));
         $('.player .download-link a').attr('href', soundURL);
@@ -59,21 +76,96 @@ $(document).ready(function(){
       });
     });
 
+    function closeEntry(entry){
+      entry
+        .queue("closer",function(next){
+          $(this).attr('style','');
+          next();
+        })
+        .queue("closer",function(next){
+          $(this).removeClass('featured');
+          next();
+        })
+        .queue("closer",function(next){
+          $(this).addClass('collapsed');
+          next();
+        })
+        .queue("closer",function(next){
+          entry.siblings().animate({opacity:1},
+            {duration:200,queue:false});
+          next();
+        })
+        .dequeue("closer");
+
+        $('.entries-wrap').css('overflow-x','scroll');
+
+    }
+
+    function openEntry(entry){
+
+      var headerHeight = entry.find('.entry__header').height();
+      var contentHeight = entry.find('.entry__content').height();
+      var entriesAreaHeight = $('.entries-container').height();
+
+      entry
+        .queue("expander",function(next){
+          entry.siblings().animate({opacity:0},
+            {duration:200,queue:false});
+          next();
+        })
+        .animate({maxWidth:'100vw',height:entriesAreaHeight},
+            {duration:200,queue:"expander"}
+        )
+        .delay(50,"expander")
+        .queue("expander",function(next){
+          $('.entries-wrap').scrollTo($(this),200);
+          console.log('scroll to');
+          next();
+        })
+        .queue("expander",function(){
+          $(this).addClass('featured');
+          console.log('add class');
+        })
+        .dequeue("expander");
+
+        $('.entries-wrap').css('overflow-x','hidden');
+    }
+
     $('.entry--sound .entry__title').each(function(){
       $(this).click(function(e){
 
-        var entry = $(this).parent().parent();
+        var entry = $(this).parent().parent().parent();
+        openEntry(entry);
 
-        var headerHeight = entry.find('.entry__header').height();
-        var contentHeight = entry.find('.entry__content').height();
-        var entriesAreaHeight = $('.entries-container').height();
+      });
+    });
 
-        //$('.entries-container, .entries-wrap').height(headerHeight + contentHeight);
-        entry.height(entriesAreaHeight);
+    $('.entry--sound .close').each(function(){
+      $(this).click(function(e){
 
-        entry.removeClass('collapsed');
-        entry.addClass('featured');
+        var entry = $(this).parent().parent().parent();
 
-      })
-    })
+        closeEntry(entry)
+
+      });
+    });
+
+    $('.logo-container').clickToggle(function(){
+      $('.site-header').addClass('open');
+    },function(){
+      $('.site-header').removeClass('open');
+    });
+
+    $('.entries-wrap').scroll(function(){
+      var navWidth = $('.timeline-container').width();
+      var entriesPosition = $(this).scrollLeft();
+      var totalWidth = 0;
+      $('.entries-wrap .entry').each(function(){ totalWidth += $(this).innerWidth()+1; });
+      console.log(totalWidth,entriesPosition,navWidth);
+      var positionPercentage = ($(this).scrollLeft() / (totalWidth - $(this).innerWidth()))*100;
+
+      $('.timeline-position-indicator').css('left',positionPercentage+'%');
+
+    });
+
 });

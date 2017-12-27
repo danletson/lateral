@@ -459,6 +459,10 @@ a.cta, button.cta {
   vertical-align: baseline;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: 'Lora',Georgia,Times,serif;
   font-weight: 400;
@@ -562,6 +566,10 @@ body {
 
 .entry .entry__content {
   display: block;
+}
+
+.entry .entry__links {
+  margin-top: 1.5rem;
 }
 
 .entry .entry__title {
@@ -673,6 +681,16 @@ header.site-header.open .logo-container .logo--open {
 
 nav {
   position: relative;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid black;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
 }
 
 .timeline-container {
@@ -686,7 +704,7 @@ nav {
   flex-direction: row-reverse;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  position: relative;
 }
 
 .timeline-container .timeline-position-container {
@@ -694,6 +712,7 @@ nav {
   height: 100%;
   left: 1.5rem;
   right: 2rem;
+  z-index: -1;
 }
 
 .timeline-container .timeline-position-indicator {
@@ -705,6 +724,7 @@ nav {
 }
 
 .timeline-container a[data-entry-target] {
+  position: relative;
   border-left-color: black;
   color: black;
 }
@@ -717,7 +737,7 @@ nav {
 .timeline-container .timeline-mark {
   position: relative;
   width: .5rem;
-  height: .5rem;
+  height: .75rem;
   display: none;
   background: none;
   border-left: 1px solid;
@@ -918,7 +938,7 @@ nav {
 }
 
 .player-container.open {
-  height: 5rem;
+  min-height: 5rem;
 }
 
 div.entries-container {

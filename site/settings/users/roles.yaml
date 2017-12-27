@@ -1,0 +1,29 @@
+63b6f68c-f42d-46fb-922e-6e663f763a6d:
+  title: Editor
+  slug: editor
+  permissions:
+    - cp:access
+    - content:view_drafts_on_frontend
+    - resolve_duplicates
+    - pages:edit
+    - pages:create
+    - pages:delete
+    - pages:reorder
+    - collections:sound_collections:edit
+    - collections:sound_collections:create
+    - collections:sound_collections:delete
+    - collections:sounds:edit
+    - collections:sounds:create
+    - collections:sounds:delete
+    - taxonomies:tags:edit
+    - taxonomies:tags:create
+    - taxonomies:tags:delete
+    - globals:global:edit
+    - assets:main:edit
+    - assets:main:create
+    - assets:main:delete
+    - forms
+    - updater
+    - importer
+    - users:edit
+    - users:create

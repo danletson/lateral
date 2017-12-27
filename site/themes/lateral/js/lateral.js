@@ -178,6 +178,42 @@ $(document).ready(function(){
 
     });
 
+    $('.post a.expand-link').each(function(){
+			$(this).click(function(e){
+				e.preventDefault();
+				var post = $(this).parent().parent();
+				expandPost(post);
+			});
+        });
+
+        $('.post .close-link a').each(function(){
+        	$(this).click(function(e){
+				e.preventDefault();
+				var post = $(this).parent().parent().parent();
+				closePost(post);
+            });
+        });
+
+        $('td[data-nav-index]').each(function(){
+			var navTarget = $(this).attr('data-nav-index');
+			$(this).find('a').click(function(){
+				var post = $('article#'+navTarget).parent();
+				scrollToPost(post);
+			});
+		});
+
+
+        var hash = window.location.hash;
+
+		if(hash){
+			var post = $('article'+hash).parent();
+			expandPost(post);
+		} else {
+			$('#page-wrap').animate({
+				scrollLeft: $('.latest').offset().left
+			}, 300);
+		}
+
 });
 
 //# sourceMappingURL=lateral.js.map

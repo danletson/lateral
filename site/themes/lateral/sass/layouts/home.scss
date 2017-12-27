@@ -13,7 +13,7 @@
     height: 0;
   }
   &.open{
-    height: 5rem;
+    min-height: 5rem;
   }
   width: 100vw;
 }

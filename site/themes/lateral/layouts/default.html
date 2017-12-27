@@ -27,23 +27,31 @@
     </header>
     <div class="grid-container">
         <nav>
-          <div class="timeline-container">
-            <div class="timeline-position-container">
-              <div class="timeline-position-indicator">
-              </div>
-            </div>
-            {{ collection:sound_collections scope="group" sort="date:desc" limit="6"}}
-                {{ if type_of_collection == "date_collection"}}
-                  {{ relate:sounds sort="entry_number:desc"}}
-                    {{ if last }}
-                      <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark" data-title="{{ group:title }}"></div></a>
-                    {{ else }}
-                      <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark"></div></a>
-                    {{ /if }}
-                  {{ /relate:sounds }}
-                {{ /if }}
+            {{ collection:sound_collections sort="date:desc" limit="4" paginate="true" as="sound_collection" type_of_collection:is="date_collection"}}
+                {{ paginate }}
+                  {{ if next_page }}
+                    <a href="{{ next_page }}">&larr;&nbsp;Older</a>
+                  {{ /if }}
+                  <div class="timeline-container">
+                  {{ sound_collection scope="group"}}
+                    {{ relate:sounds sort="entry_number:desc"}}
+                      {{ if last }}
+                        <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark" data-title="{{ group:title }}"></div></a>
+                      {{ else }}
+                        <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark"></div></a>
+                      {{ /if }}
+                    {{ /relate:sounds }}
+                  {{ /sound_collection }}
+                  <div class="timeline-position-container">
+                    <div class="timeline-position-indicator">
+                    </div>
+                  </div>
+                  </div>
+                  {{ if prev_page }}
+                    <a href="{{ prev_page }}">Newer&nbsp;&rarr;</a>
+                  {{ /if }}
+                {{ /paginate }}
             {{ /collection:sound_collections}}
-          </div>
         </nav>
         <div class="player-container collapsed">
           <div class="player">
@@ -58,30 +66,32 @@
         </div>
         <div class="entries-container">
           <div class="entries-wrap">
-            {{ collection:sound_collections scope="group" sort="date:desc" limit="6"}}
-              {{ if type_of_collection == "date_collection"}}
-                {{ relate:sounds as="entry" sort="entry_number:desc"}}
-                  {{ entry }}
-                    <div class="entry entry--sound collapsed" data-entry-number="{{ entry_number }}">
-                      <div class="entry__wrapper">
-                        <header class="entry__header">
-                          <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
-                          <h2 class="entry__title">{{ title }}</h2>
-                          <a href="#" class="close cta">Close</a>
-                        </header>
-                        <div class="entry__content">
-                          <div class="entry__links">
-                            <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
-                          </div>
-                          <div class="entry__text">
-                            {{ companion_text }}
+            {{ collection:sound_collections sort="date:desc" limit="4" paginate="true" as="sound_collection" type_of_collection:is="date_collection"}}
+                {{ paginate }}
+                  {{ sound_collection }}
+                    {{ relate:sounds as="entry" sort="entry_number:desc"}}
+                      {{ entry }}
+                        <div class="entry entry--sound collapsed" data-entry-number="{{ entry_number }}">
+                          <div class="entry__wrapper">
+                            <header class="entry__header">
+                              <span class="entry__number">{{ entry_number }}</span> <span class="entry__artist">{{ artist }}</span>
+                              <h2 class="entry__title">{{ title }}</h2>
+                              <a href="#" class="close cta">Close</a>
+                            </header>
+                            <div class="entry__content">
+                              <div class="entry__links">
+                                <a href="" class="cta play-sound" data-sound="{{ sound_url }}" data-title="{{ artist }} ― {{ title }}">Listen</a><a download class="cta" href="{{ sound_url }}">Download</a>
+                              </div>
+                              <div class="entry__text">
+                                {{ companion_text }}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  {{ /entry }}
-                {{ /relate:sounds }}
-              {{ /if }}
+                      {{ /entry }}
+                    {{ /relate:sounds }}
+                  {{ /sound_collection }}
+                {{ /paginate }}
             {{ /collection:sound_collections }}
           </div>
         </div>

@@ -1,5 +1,12 @@
 nav{
   position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid black;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
 }
 
 .timeline-container{
@@ -9,13 +16,14 @@ nav{
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  position:relative;
 
   .timeline-position-container{
     position:absolute;
     height: 100%;
     left: 1.5rem;
     right: 2rem;
+    z-index: -1;
   }
   .timeline-position-indicator{
     position: absolute;
@@ -23,9 +31,11 @@ nav{
     background: black;
     height: 100%;
     left: 100%;
+
   }
 
   a[data-entry-target]{
+    position: relative;
     border-left-color: black;
     color: black;
     &:hover{
@@ -37,7 +47,7 @@ nav{
   .timeline-mark{
     position: relative;
     width: .5rem;
-    height: .5rem;
+    height: .75rem;
     display: none;
     background: none;
     border-left: 1px solid;

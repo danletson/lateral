@@ -794,7 +794,6 @@ nav {
   align-items: center;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  border-bottom: 1px solid black;
   width: 100vw;
   transition: opacity .3s linear;
 }
@@ -897,7 +896,7 @@ nav {
 @media (min-width: 680px) {
   .player {
     flex-wrap: nowrap;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
   }
   .player .track-title {
     flex-basis: 40%;
@@ -938,6 +937,9 @@ nav {
 
 .player-container.open {
   min-height: 5rem;
+  background: white;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid black;
 }
 
 div.entries-container {

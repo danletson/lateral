@@ -13,6 +13,25 @@ header.site-header{
     opacity: 0;
     transition: opacity .4s .4s ease;
     padding: 1.5rem;
+
+    #mc_embed_signup_scroll p, #mc_embed_signup_scroll input{
+      display:inline-block;
+    }
+    #mc-embedded-subscribe{
+      color: #06f;
+      border: none;
+      background: none;
+      font-family: 'Lora',Georgia,Times,serif;
+      cursor: pointer;
+    }
+    #mc-embedded-subscribe-form{
+      margin-top: 2rem;
+    }
+    #mce-EMAIL{
+      border: none;
+      border-bottom: 1px solid #06f;
+      font-family: 'Lora',Georgia,Times,serif;
+    }
   }
   .logo-container{
     width: 100%;

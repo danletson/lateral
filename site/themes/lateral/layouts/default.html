@@ -23,6 +23,23 @@
       </a>
       <div class="about-container">
         {{ about | markdown }}
+        <!-- Begin MailChimp Signup Form -->
+          <div id="mc_embed_signup">
+	          <form action="//lateraladdition.us12.list-manage.com/subscribe/post?u=fd3db3e3176bc087728db65b9&amp;id=ee7cb4d07a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	            <div id="mc_embed_signup_scroll">
+	            <div class="mc-field-group">
+	              <p>Subscribe:</p>
+	              <input type="email" value="" name="EMAIL" placeholder="Email Address" class="required email" id="mce-EMAIL" size="30">
+	              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_fd3db3e3176bc087728db65b9_ee7cb4d07a" tabindex="-1" value=""></div>
+	              <input type="submit" value="Go" name="subscribe" id="mc-embedded-subscribe" class="text-cta"></div>
+	            </div>
+	            <div id="mce-responses" class="clear">
+	              <div class="response" id="mce-error-response" style="display:none"></div>
+	              <div class="response" id="mce-success-response" style="display:none"></div>
+	            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+	          </form>
+          </div>
+        <!--End mc_embed_signup-->
       </div>
     </header>
     <div class="grid-container">
@@ -36,9 +53,9 @@
                   {{ sound_collection scope="group"}}
                     {{ relate:sounds sort="entry_number:desc"}}
                       {{ if last }}
-                        <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark" data-title="{{ group:title }}"></div></a>
+                        <a href="#" data-target-entry="{{ entry_number }}"><div class="timeline-mark" data-title="{{ group:title }}"></div></a>
                       {{ else }}
-                        <a href="#{{ entry_number }}" data-target-entry="{{ entry_number }}"><div  class="timeline-mark"></div></a>
+                        <a href="#" data-target-entry="{{ entry_number }}"><div class="timeline-mark"></div></a>
                       {{ /if }}
                     {{ /relate:sounds }}
                   {{ /sound_collection }}

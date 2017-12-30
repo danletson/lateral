@@ -452,13 +452,14 @@ a.cta, button.cta {
   text-transform: uppercase;
   font-size: 15.96px;
   letter-spacing: 0;
-  color: #4A90E2;
+  color: #06f;
   text-decoration: none;
   font-weight: normal;
   vertical-align: baseline;
 }
 
-a {
+a, a:hover, a:visited {
+  color: #06f;
   text-decoration: none;
 }
 
@@ -480,14 +481,14 @@ body {
 .entry {
   position: relative;
   padding: 0 3rem 0 1.5rem;
-  transition: all 0.4s ease;
+  transition: all 0.15s ease;
   width: 100vw;
   max-width: 30rem;
   margin-right: 2rem;
   -webkit-box-flex: 0;
   flex-grow: 0;
   flex-shrink: 0;
-  margin: 1.5rem auto;
+  margin: 0 auto;
 }
 
 .entry.collapsed {
@@ -509,6 +510,7 @@ body {
 
 .entry.featured {
   padding-top: 2rem;
+  border-left: none;
   -ms-grid-row-align: stretch;
   align-self: stretch;
   overflow: scroll;
@@ -622,6 +624,28 @@ header.site-header .about-container {
   padding: 1.5rem;
 }
 
+header.site-header .about-container #mc_embed_signup_scroll p, header.site-header .about-container #mc_embed_signup_scroll input {
+  display: inline-block;
+}
+
+header.site-header .about-container #mc-embedded-subscribe {
+  color: #06f;
+  border: none;
+  background: none;
+  font-family: 'Lora',Georgia,Times,serif;
+  cursor: pointer;
+}
+
+header.site-header .about-container #mc-embedded-subscribe-form {
+  margin-top: 2rem;
+}
+
+header.site-header .about-container #mce-EMAIL {
+  border: none;
+  border-bottom: 1px solid #06f;
+  font-family: 'Lora',Georgia,Times,serif;
+}
+
 header.site-header .logo-container {
   width: 100%;
   text-align: center;
@@ -729,8 +753,8 @@ nav {
 }
 
 .timeline-container a[data-entry-target]:hover {
-  border-left-color: #4A90E2;
-  color: #4A90E2;
+  border-left-color: #06f;
+  color: #06f;
 }
 
 .timeline-container .timeline-mark {
@@ -740,15 +764,15 @@ nav {
   display: none;
   background: none;
   border-left: 1px solid;
-  border-left-color: #4A90E2;
+  border-left-color: #06f;
   transition: all .2s ease;
 }
 
 .timeline-container .timeline-mark[data-title] {
   display: block;
-  color: #4A90E2;
+  color: #06f;
   border-left: 1px solid;
-  border-left-color: #4A90E2;
+  border-left-color: #06f;
   height: 2rem;
 }
 
@@ -762,7 +786,7 @@ nav {
 }
 
 .timeline-container .timeline-mark:hover {
-  border-left-color: #4A90E2;
+  border-left-color: #06f;
 }
 
 @media (min-width: 680px) {
@@ -770,7 +794,7 @@ nav {
     display: block;
   }
   .timeline-container .timeline-mark[data-title] {
-    border-left: 2px solid #4A90E2;
+    border-left: 2px solid #06f;
   }
 }
 
@@ -820,7 +844,7 @@ nav {
 
 .player .plyr .plyr__controls button.tab-focus:focus, .player .plyr .plyr__controls button:hover {
   background: white;
-  color: #4A90E2;
+  color: #06f;
   text-decoration: underline;
 }
 

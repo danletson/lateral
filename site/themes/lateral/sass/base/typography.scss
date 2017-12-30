@@ -44,6 +44,7 @@ a.cta, button.cta{
   vertical-align: baseline;
 }
 
-a{
+a, a:hover, a:visited{
+  color: $blue;
   text-decoration: none;
 }

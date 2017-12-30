@@ -110,22 +110,18 @@ $(document).ready(function(){
       entry
         .queue("expander",function(next){
           entry.siblings().animate({opacity:0},
-            {duration:200,queue:false});
+            {duration:150,queue:false});
+          $(this).addClass('featured');
+          console.log('add class');
           next();
         })
-        .animate({maxWidth:'100vw',height:entriesAreaHeight},
-            {duration:200,queue:"expander"}
-        )
-        .delay(50,"expander")
+        .delay(150,"expander")
         .queue("expander",function(next){
-          $('.entries-wrap').scrollTo($(this),200);
+          $('.entries-wrap').scrollTo($(this),150);
           console.log('scroll to');
           next();
         })
-        .queue("expander",function(){
-          $(this).addClass('featured');
-          console.log('add class');
-        })
+
         .dequeue("expander");
 
         $('.entries-wrap').css('overflow-x','hidden');
@@ -145,7 +141,7 @@ $(document).ready(function(){
 
         var entry = $(this).parent().parent().parent();
 
-        closeEntry(entry)
+        closeEntry(entry);
 
       });
     });
@@ -162,23 +158,27 @@ $(document).ready(function(){
       var totalWidth = 0;
       $('.entries-wrap .entry').each(function(){ totalWidth += $(this).innerWidth()+1; });
       console.log(totalWidth,entriesPosition,navWidth);
-      var positionPercentage = ($(this).scrollLeft() / (totalWidth - $(this).innerWidth()))*100;
+      if (entriesPosition < 0){
+        var positionPercentage = (Math.abs(entriesPosition) / (totalWidth - $(this).innerWidth()))*100;
+        $('.timeline-position-indicator').css('left',(100-positionPercentage)+'%');
+      } else {
+        var positionPercentage = (entriesPosition / (totalWidth - $(this).innerWidth()))*100;
+        $('.timeline-position-indicator').css('left',positionPercentage+'%');
+      }
 
-      $('.timeline-position-indicator').css('left',positionPercentage+'%');
+
+
 
     });
 
 
     $('a[data-target-entry]').each(function(){
       $(this).click(function(){
-
         var currentEntry = $('.entry.featured');
-
         closeEntry(currentEntry);
-
         var hash = $(this).attr('data-target-entry');
         var entry = $('[data-entry-number="'+hash+'"]');
-  			openEntry(entry);
+  			$('.entries-wrap').scrollTo(entry,200);
       });
 		});
 

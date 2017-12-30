@@ -29,7 +29,6 @@
       button.tab-focus:focus, button:hover{
         background: white;
         color: $blue;
-        text-decoration: underline;
       }
       .plyr__progress{
         margin-right: 1.5rem;
@@ -37,6 +36,9 @@
       .plyr__progress--played, .plyr__progress--buffer{
         height: 3px;
         margin-top: -2px;
+      }
+      .plyr__progress--played{
+        color: $blue;
       }
       .plyr__time{
         display: none;

@@ -36,7 +36,7 @@ p{
   line-height: 1.5;
 }
 
-a.cta, button.cta{
+a.cta, button.cta, a.cta:hover, button.cta:hover, a.cta:visited, button.cta:visited{
   @include text--condensed(21px);
   color: $blue;
   text-decoration: none;

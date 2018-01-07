@@ -1,3 +1,13 @@
+html{
+  font-size: 14px;
+}
+
+@media(min-width: 680px){
+  html{
+    font-size: 16px;
+  }
+}
+
 body{
   @include text--body;
   overflow: hidden;

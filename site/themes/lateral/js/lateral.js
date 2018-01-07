@@ -83,6 +83,8 @@ $(document).ready(function(){
         player[0].on('canplay', function(){
           player[0].play();
         });
+
+        adjustEntriesContainerHeight();
       });
     });
 
@@ -108,6 +110,7 @@ $(document).ready(function(){
         .dequeue("closer");
 
         $('.entries-wrap').css('overflow-x','scroll');
+        adjustEntriesContainerHeight();
 
     }
 
@@ -135,6 +138,7 @@ $(document).ready(function(){
         .dequeue("expander");
 
         $('.entries-wrap').css('overflow-x','hidden');
+        adjustEntriesContainerHeight();
     }
 
     $('.entry--sound .entry__title').each(function(){
@@ -180,6 +184,11 @@ $(document).ready(function(){
 
 
     });
+
+    function adjustEntriesContainerHeight(){
+      var calculatedHeight = $(window).height() - ($('header').outerHeight() + $('nav').outerHeight() + $('.player-container.open').outerHeight());
+      $('.entries-container').css('height',calculatedHeight)
+    }
 
 
     $('a[data-target-entry]').each(function(){

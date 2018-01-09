@@ -78,6 +78,16 @@ $(document).ready(function(){
       });
     });
 
+    function adjustEntriesWrapWidth(){
+      var entriesWrapWidth = 0;
+      $('.entries-wrap .entry').each(function(){ entriesWrapWidth += $(this).innerWidth()+1; });
+      $('.entries-wrap').css('width',entriesWrapWidth);
+    };
+
+    $(window).resize(function(){
+      adjustEntriesWrapWidth();
+    });
+
     function closeEntry(entry){
       entry
         .queue("closer",function(next){
@@ -169,10 +179,6 @@ $(document).ready(function(){
         var positionPercentage = (entriesPosition / (totalWidth - $(this).innerWidth()))*100;
         $('.timeline-position-indicator').css('left',positionPercentage+'%');
       }
-
-
-
-
     });
 
     function adjustEntriesContainerHeight(){

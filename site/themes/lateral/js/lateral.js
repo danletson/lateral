@@ -88,6 +88,18 @@ $(document).ready(function(){
       });
     });
 
+    function adjustEntriesWrapWidth(scrollToEnd){
+      var entriesWrapWidth = 0;
+      var windowWidth = $(window).width();
+      $('.entries-wrap .entry').each(function(){ entriesWrapWidth += $(this).innerWidth()+1; });
+      $('.entries-wrap').css('width',entriesWrapWidth);
+      if(scrollToEnd === true){
+        $('.entries-container').scrollTo(entriesWrapWidth - windowWidth);
+      }
+    };
+
+    adjustEntriesWrapWidth(true);
+
     function closeEntry(entry){
       entry
         .queue("closer",function(next){
@@ -109,7 +121,7 @@ $(document).ready(function(){
         })
         .dequeue("closer");
 
-        $('.entries-wrap').css('overflow-x','scroll');
+        $('.entries-container').css('overflow-x','scroll');
         adjustEntriesContainerHeight();
 
     }
@@ -130,14 +142,14 @@ $(document).ready(function(){
         })
         .delay(150,"expander")
         .queue("expander",function(next){
-          $('.entries-wrap').scrollTo($(this),150);
+          $('.entries-container').scrollTo($(this),150);
           console.log('scroll to');
           next();
         })
 
         .dequeue("expander");
 
-        $('.entries-wrap').css('overflow-x','hidden');
+        $('.entries-container').css('overflow-x','hidden');
         adjustEntriesContainerHeight();
     }
 
@@ -166,7 +178,7 @@ $(document).ready(function(){
       $('.site-header').removeClass('open');
     });
 
-    $('.entries-wrap').scroll(function(){
+    $('.entries-container').scroll(function(){
       var navWidth = $('.timeline-container').width();
       var entriesPosition = $(this).scrollLeft();
       var totalWidth = 0;
@@ -179,10 +191,6 @@ $(document).ready(function(){
         var positionPercentage = (entriesPosition / (totalWidth - $(this).innerWidth()))*100;
         $('.timeline-position-indicator').css('left',positionPercentage+'%');
       }
-
-
-
-
     });
 
     function adjustEntriesContainerHeight(){
@@ -197,7 +205,7 @@ $(document).ready(function(){
         closeEntry(currentEntry);
         var hash = $(this).attr('data-target-entry');
         var entry = $('[data-entry-number="'+hash+'"]');
-  			$('.entries-wrap').scrollTo(entry,200);
+  			$('.entries-container').scrollTo(entry,200);
       });
 		});
 

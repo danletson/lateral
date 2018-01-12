@@ -35,6 +35,7 @@ redactor:
         - orderedlist
         - blockquote
         - html
+        - underline
   - 
     name: Basic
     settings:

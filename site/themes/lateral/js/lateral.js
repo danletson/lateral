@@ -99,6 +99,7 @@ $(document).ready(function(){
     };
 
     adjustEntriesWrapWidth(true);
+    adjustEntriesContainerHeight();
 
     function closeEntry(entry){
       entry

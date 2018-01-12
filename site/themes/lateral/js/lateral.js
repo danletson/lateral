@@ -115,13 +115,17 @@ $(document).ready(function(){
           next();
         })
         .queue("closer",function(next){
+          adjustEntriesWrapWidth();
+          next();
+        })
+        .queue("closer",function(next){
           entry.siblings().animate({opacity:1},
             {duration:200,queue:false});
           next();
         })
         .dequeue("closer");
 
-        $('.entries-container').css('overflow-x','scroll');
+        $('.entries-container, .entries-wrap').css('overflow-x','scroll');
         adjustEntriesContainerHeight();
 
     }
@@ -142,14 +146,17 @@ $(document).ready(function(){
         })
         .delay(150,"expander")
         .queue("expander",function(next){
+          adjustEntriesWrapWidth();
+          next();
+        })
+        .queue("expander",function(next){
           $('.entries-container').scrollTo($(this),150);
           console.log('scroll to');
           next();
         })
-
         .dequeue("expander");
 
-        $('.entries-container').css('overflow-x','hidden');
+        $('.entries-wrap, .entries-container').css('overflow-x','hidden');
         adjustEntriesContainerHeight();
     }
 
